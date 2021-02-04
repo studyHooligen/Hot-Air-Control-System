@@ -39,6 +39,7 @@ dryerv1\spidevice.o: ../Core/Inc/gpio.h
 dryerv1\spidevice.o: ../Core/Inc/spi.h
 dryerv1\spidevice.o: ../Core/Inc/dma.h
 dryerv1\spidevice.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+dryerv1\spidevice.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 dryerv1\spidevice.o: ../Middlewares/Third_Party/RealThread_RTOS_RT-Thread/include/rthw.h
 dryerv1\spidevice.o: ../Middlewares/Third_Party/RealThread_RTOS_RT-Thread/include/rtthread.h
 dryerv1\spidevice.o: ../RT-Thread/rtconfig.h

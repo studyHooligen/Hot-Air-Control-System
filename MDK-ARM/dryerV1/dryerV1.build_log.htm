@@ -22,20 +22,17 @@ Dialog DLL:      TCM.DLL V1.36.2.0
  
 <h2>Project:</h2>
 D:\xbotPark\dryerV1\MDK-ARM\dryerV1.uvprojx
-Project File Date:  02/01/2021
+Project File Date:  02/04/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'dryerV1'
-compiling windSpeed.c...
-compiling systemHealth.c...
-..\TASK\systemHealth.c(114): warning:  #144-D: a value of type "void (*)(void)" cannot be used to initialize an entity of type "const init_fn_t"
-  INIT_APP_EXPORT(systemThreadInit);  // 系统初始化的时候自动调�?
-..\TASK\systemHealth.c: 1 warning, 0 errors
-compiling tempCtrl.c...
-compiling UI.c...
+compiling Host.c...
+..\TASK\Host.c(174): warning:  #144-D: a value of type "void (*)(void)" cannot be used to initialize an entity of type "const init_fn_t"
+  INIT_APP_EXPORT(hostThreadInit);    // 该接口将被系统自动调�?
+..\TASK\Host.c: 1 warning, 0 errors
 linking...
-Program Size: Code=25530 RO-data=1174 RW-data=148 ZI-data=5148  
+Program Size: Code=27770 RO-data=1178 RW-data=160 ZI-data=7504  
 FromELF: creating hex file...
 "dryerV1\dryerV1.axf" - 0 Error(s), 1 Warning(s).
 
@@ -60,7 +57,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.2.0
-Build Time Elapsed:  00:00:06
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

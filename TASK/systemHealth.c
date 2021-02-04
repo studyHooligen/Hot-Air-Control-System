@@ -1,4 +1,4 @@
-/* 
+/**
  * systemHealth.c - The C source file of the system status thread
  * NOTE: This file is based on HAL library of stm32 platform
  *       该文件提供系统正常运行状态指示线程，分别有两大线程：
@@ -33,7 +33,7 @@ static char stack_system[128];
 static struct rt_thread thread_defender;
 static char stack_defender[128];
 
-/*  @brief  系统运行状态检测
+/** @brief  系统运行状态检测
  *  @note   
  *          在该线程中，将以1Hz的频率变换系统状态指示灯
  *  @author 江榕煜（2021.2.1）
@@ -55,7 +55,7 @@ static void thread_systemStatus(void *param)
     }
 }
 
-/*  @brief  系统错误发生报警提示线程
+/** @brief  系统错误发生报警提示线程
  *  @note   
  *          在该线程中，将检查整个设备的可能发生错误、危险的物理量
  *          如果检测到危险、错误，将会向用户报警
@@ -74,7 +74,7 @@ static void thread_systemDefender(void *param)
 
 /***********用户服务使用接口************/
 
-/*  @brief  系统状态线程初始化启动接口
+/** @brief  系统状态线程初始化启动接口
  *  @note
  *  @author 江榕煜（2021.2.1）
  *  @param 
@@ -113,7 +113,7 @@ void systemThreadInit(void)
 
 INIT_APP_EXPORT(systemThreadInit);  // 系统初始化的时候自动调用
 
-/*  @brief  停止系统状态LED
+/** @brief  停止系统状态LED
  *  @note
  *  @author 江榕煜（2021.2.1）
  *  @param  None
@@ -127,7 +127,7 @@ void stopStatusLED(void)
 
 MSH_CMD_EXPORT(stopStatusLED,stop system LED);
 
-/*  @brief  恢复系统状态LED
+/** @brief  恢复系统状态LED
  *  @note 
  *  @author 江榕煜（2021.2.1）
  *  @param  None

@@ -20,7 +20,7 @@ enum rt_ringbuffer_state
 {
     RT_RINGBUFFER_EMPTY,
     RT_RINGBUFFER_FULL,
-    /* half full is neither full nor empty */
+    /**half full is neither full nor empty */
     RT_RINGBUFFER_HALFFULL,
 };
 
@@ -63,11 +63,11 @@ void rt_ringbuffer_init(struct rt_ringbuffer *rb,
     RT_ASSERT(rb != RT_NULL);
     RT_ASSERT(size > 0);
 
-    /* initialize read and write index */
+    /**initialize read and write index */
     rb->read_mirror = rb->read_index = 0;
     rb->write_mirror = rb->write_index = 0;
 
-    /* set buffer pool and size */
+    /**set buffer pool and size */
     rb->buffer_ptr = pool;
     rb->buffer_size = RT_ALIGN_DOWN(size, RT_ALIGN_SIZE);
 }
@@ -79,13 +79,13 @@ rt_size_t rt_ringbuffer_putchar(struct rt_ringbuffer *rb, const rt_uint8_t ch)
 {
     RT_ASSERT(rb != RT_NULL);
 
-    /* whether has enough space */
+    /**whether has enough space */
     if (!rt_ringbuffer_space_len(rb))
         return 0;
 
     rb->buffer_ptr[rb->write_index] = ch;
 
-    /* flip mirror */
+    /**flip mirror */
     if (rb->write_index == rb->buffer_size-1)
     {
         rb->write_mirror = ~rb->write_mirror;
@@ -105,11 +105,11 @@ rt_size_t rt_ringbuffer_getchar(struct rt_ringbuffer *rb, rt_uint8_t *ch)
 {
     RT_ASSERT(rb != RT_NULL);
 
-    /* ringbuffer is empty */
+    /**ringbuffer is empty */
     if (!rt_ringbuffer_data_len(rb))
         return 0;
 
-    /* put character */
+    /**put character */
     *ch = rb->buffer_ptr[rb->read_index];
 
     if (rb->read_index == rb->buffer_size-1)
@@ -130,8 +130,8 @@ rt_size_t rt_ringbuffer_getchar(struct rt_ringbuffer *rb, rt_uint8_t *ch)
 
 /******IO Port******/
 rt_uint8_t uart_rx_buf[FinshUartRxBufLen] = {0};
-struct rt_ringbuffer  uart_rxcb;         /* 定义一个 ringbuffer cb */
-static struct rt_semaphore shell_rx_sem; /* 定义一个静态信号量 */
+struct rt_ringbuffer  uart_rxcb;         /**定义一个 ringbuffer cb */
+static struct rt_semaphore shell_rx_sem; /**定义一个静态信号量 */
 
 /*
  * @brief 控制台获取字符接口（RTT标准）
@@ -141,7 +141,7 @@ char rt_hw_console_getchar(void)
 {
     char ch = 0;
 
-    /* 从 ringbuffer 中拿出数据 */
+    /**从 ringbuffer 中拿出数据 */
     while (rt_ringbuffer_getchar(&uart_rxcb, (rt_uint8_t *)&ch) != 1)
     {
         rt_sem_take(&shell_rx_sem, RT_WAITING_FOREVER);
@@ -173,7 +173,7 @@ void rt_hw_console_output(const char *str)
 void FinshUartIRQHandler(void)
 {
     int ch = -1;
-    /* enter interrupt */
+    /**enter interrupt */
     rt_interrupt_enter();          //在中断中一定要调用这对函数，进入中断
 
     if ((__HAL_UART_GET_FLAG(&(FinshUartHandle), UART_FLAG_RXNE) != RESET) &&
@@ -190,13 +190,13 @@ void FinshUartIRQHandler(void)
             {
                 break;
             }  
-            /* 读取到数据，将数据存入 ringbuffer */
+            /**读取到数据，将数据存入 ringbuffer */
             rt_ringbuffer_putchar(&uart_rxcb, ch);
         }        
         rt_sem_release(&shell_rx_sem);
     }
 
-    /* leave interrupt */
+    /**leave interrupt */
     rt_interrupt_leave();    //在中断中一定要调用这对函数，离开中断
 }
 

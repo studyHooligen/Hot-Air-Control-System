@@ -1,4 +1,4 @@
-/* 
+/**
  * UI.c - The C source file of the User Interface
  * NOTE: This file is based on HAL library of stm32 platform
  *       该文件提供用户和系统交互（FinSH控制台）的命令定义
@@ -18,7 +18,7 @@
 
 #include "BSP.h"
 
-/*  @brief  启动所有PWM接口（控制台命令）
+/** @brief  启动所有PWM接口（控制台命令）
  *  @note
  *  @author 江榕煜（2020.9.23）
  *  @param  无
@@ -37,7 +37,7 @@ int beginAllPWM(int argc,char** argv)
 
 MSH_CMD_EXPORT(beginAllPWM,begin PWM output);
 
-/*  @brief  停止所有PWM接口（控制台命令）
+/** @brief  停止所有PWM接口（控制台命令）
  *  @note
  *  @author 江榕煜（2021.1.25）
  *  @param  无
@@ -56,7 +56,7 @@ int stopAllPWM(int argc,char ** argv)
 
 MSH_CMD_EXPORT(stopAllPWM,stop PWM output);
 
-/*  @brief  设置PWM占空比接口（控制台命令）
+/** @brief  设置PWM占空比接口（控制台命令）
  *  @note   占空比范围0~1000 <-> 0%~100%
  *  @author 江榕煜（2021.1.25）
  *  @param  

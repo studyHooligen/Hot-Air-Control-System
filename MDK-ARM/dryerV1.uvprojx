@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;              ../Drivers/STM32F1xx_HAL_Driver/Inc;              ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;              ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;              ../Drivers/CMSIS/Include;              ../RT-Thread;              ../Middlewares/Third_Party/RealThread_RTOS_RT-Thread/components/finsh/;              ../Middlewares/Third_Party/RealThread_RTOS_RT-Thread/include/;              ..\BSP;              ..\Algorithm</IncludePath>
+              <IncludePath>../Core/Inc;                    ../Drivers/STM32F1xx_HAL_Driver/Inc;                    ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;                    ../Drivers/CMSIS/Device/ST/STM32F1xx/Include;                    ../Drivers/CMSIS/Include;                    ../RT-Thread;                    ../Middlewares/Third_Party/RealThread_RTOS_RT-Thread/components/finsh/;                    ../Middlewares/Third_Party/RealThread_RTOS_RT-Thread/include/;                    ..\BSP;                    ..\Algorithm</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -567,6 +567,16 @@
               <FileType>1</FileType>
               <FilePath>..\BSP\PWMdevice.c</FilePath>
             </File>
+            <File>
+              <FileName>uart4Host.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\uart4Host.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart4Host.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\uart4Host.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -591,6 +601,11 @@
               <FileName>systemHealth.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TASK\systemHealth.c</FilePath>
+            </File>
+            <File>
+              <FileName>Host.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\Host.c</FilePath>
             </File>
           </Files>
         </Group>

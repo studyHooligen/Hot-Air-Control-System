@@ -1,4 +1,4 @@
-/* 
+/**
  * PID.c - The C source file of PID controller
  * NOTE: This file is based on C99
  *

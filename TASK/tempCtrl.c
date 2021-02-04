@@ -1,4 +1,4 @@
-/* 
+/**
  * tempCtrl.c - The C source file of the temperature control thread
  * NOTE: This file is based on HAL library of stm32 platform
  *       该文件提供温度闭环控制服务线程，分别有两大线程：
@@ -55,7 +55,7 @@ static char stack_tempDetect[512];      // 温度（检测）线程栈
 static struct rt_thread threadProperty_tempCtrl;  // 温度（控制）线程属性变量
 static char stack_tempCtrl[512];      // 温度（控制）线程栈
 
-/*  @brief  温度数据采集服务线程
+/** @brief  温度数据采集服务线程
  *  @note   调用频率同采样率
  *          这是一个持续运行线程！
  *  @author 江榕煜（2021.1.25）
@@ -96,7 +96,7 @@ static void thread_tempDetect(void *param)
     }
 }
 
-/*  @brief  温度控制/保护服务线程
+/** @brief  温度控制/保护服务线程
  *  @note   暂时不对芯片过温进行解决！！！
  *          这是一个持续运行线程！
  *  @author 江榕煜（2021.1.25）
@@ -137,7 +137,7 @@ static void thread_tempCtrl(void *param)
 
 /***********用户服务使用接口************/
 
-/*  @brief  温度工作初始化
+/** @brief  温度工作初始化
  *  @note   在此之前务必先初始化好外设
  *  @author 江榕煜（2021.1.25）
  *  @param  None
@@ -204,7 +204,7 @@ void Temp_thread_init(void)
     }
 }
 
-/*  @brief  ADC转换完成回调函数
+/** @brief  ADC转换完成回调函数
  *  @note   注意这是总的回调函数，需要检查传入的句柄是否为你想要的ADC
  *  @author 江榕煜（2021.1.25）
  *  @param  
@@ -220,7 +220,7 @@ void Temp_thread_init(void)
 //    }
 //}
 
-/*  @brief  SPI使用DMA传输
+/** @brief  SPI使用DMA传输
  *  @note   
  *          在该回调函数中添加了500次运算的延时
  *  @author 江榕煜（2021.1.27）
