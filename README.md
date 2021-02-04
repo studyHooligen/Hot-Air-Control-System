@@ -72,7 +72,6 @@ FinSH控制台 | USART3 | D9 | D8 | 见`./BSP/uartFinshCharIO.c`
   - RT-Thread：实时操作系统源文件
   - TASK：用户任务文件夹
     - Host.c（上位机线程）
-    - PWMctrl.c
     - systemHealth.c（系统维护线程）
     - tempCtrl.c（温度控制线程）
     - UI.c（用户控制台服务）
